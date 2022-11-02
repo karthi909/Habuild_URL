@@ -45,6 +45,7 @@
   3) Hear each short URL will be unique, for that we used nanoid of 12chareters so that we cna achive a Trillion combinations from it
   4) we also integrated method as mentioned so that we cna reuse a shortURL with diffrent longURL to. 
   5) if a user try to short a smae short url which is previously shortend then it will give the previous data By this we can achive using less data.
+  6) In this we had given expiry limit of redis data for 30sec you can increase if we want.
 
 ## Routes 
 
