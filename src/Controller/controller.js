@@ -112,7 +112,7 @@ const getUrl = async (req, res) => {
          return res.status(302).redirect(url.longUrl)
     }else{
        // console.log(req.params.urlCode)
-        let code = await urlMOdel.findOne({urlCode: req.params.urlCode}) 
+        let code = await urlMOdel.findOne({urlCode: req.params.urlCode, isDeleted:false}) 
        // console.log(code)
         if(!code) return res.status(404).send({status: false, message:"No URL Found ..!"})
 
@@ -131,7 +131,7 @@ const updateUrl = async (req, res)=>{
         let {long} = dataa
         // let getData = await urlMOdel.findById({_id: urlid})
         // console.log(getData)
-        let data = await urlMOdel.findOneAndUpdate({_id: urlid},{longUrl: long},{new: true});
+        let data = await urlMOdel.findOneAndUpdate({_id: urlid},{longUrl: long, isDeleted: true},{new: true});
 
         return res.status(201).send({status: true, data:data})
     } catch (err) {
